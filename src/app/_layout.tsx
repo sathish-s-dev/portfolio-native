@@ -23,9 +23,18 @@ export default function Layout() {
 		<PaperProvider theme={theme}>
 			<Stack
 				screenOptions={{
-					headerShown: false,
-				}}
-			/>
+					headerStyle: {
+						backgroundColor: theme.dark ? colors.primary_dark : colors.white,
+					},
+					headerTintColor: theme.dark
+						? colors.primary_darkText
+						: colors.primaryText,
+				}}>
+				<Stack.Screen
+					name='home'
+					options={{ headerShown: false }}
+				/>
+			</Stack>
 		</PaperProvider>
 	);
 }

@@ -5,6 +5,9 @@ import { ScrollView } from 'react-native';
 import { SkillSection } from '@/components/SkillSection';
 import { Image } from 'expo-image';
 import Animated, { FadeInDown } from 'react-native-reanimated';
+import ProjectsSection from '@/components/ProjectsSection';
+import { LinearGradient } from 'expo-linear-gradient';
+import { SocialLinks } from './contact';
 
 const image = require('../../../public/product.png');
 const Home = () => {
@@ -14,6 +17,8 @@ const Home = () => {
 			showsVerticalScrollIndicator={false}>
 			<Hero />
 			<SkillSection />
+			<ProjectsSection />
+			<SocialLinks />
 		</ScrollView>
 	);
 };
@@ -29,11 +34,21 @@ function Hero() {
 			className='flex-1 pt-10 justify-center dark:bg-slate-900 bg-slate-100'>
 			<View className='gap-10 items-s justify-center w-[90%] px-6'>
 				<View className='gap-4 w-full items-start '>
-					<View className='gap-2 items-stretch'>
-						<Text className='text-4xl dark:text-slate-200'>
-							Nice to Meet you!
-						</Text>
-						<Text className='text-5xl text-primary'>I'm Sathish</Text>
+					<View className='gap-4 items-stretch'>
+						<Text className='text-5xl'>Nice to Meet you!</Text>
+						<View>
+							<LinearGradient
+								colors={[
+									'transparent',
+									'transparent',
+									'#0E5D6Ff0',
+									'transparent',
+									'transparent',
+								]}
+								className='w-60 dark:opacity-80 opacity-5 h-12 absolute -bottom-4 '
+							/>
+							<Text className='text-5xl text-primary w-64'>I'm Sathish</Text>
+						</View>
 						<Text className='text-primary/50 text-xl'>
 							React Native Developer
 						</Text>
@@ -45,7 +60,7 @@ function Hero() {
 					</View>
 					<Button
 						icon='phone'
-						className='self-'
+						className='self-start w-48'
 						onPress={() => router.push('/home/contact')}>
 						hire me
 					</Button>

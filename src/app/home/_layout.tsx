@@ -49,7 +49,14 @@ const DrawerLayour = () => {
 						options={{ title: 'Home', headerTitle: '' }}
 					/>
 					<Drawer.Screen name='contact' />
-					<Drawer.Screen name='projects' />
+					<Drawer.Screen
+						name='projects'
+						options={{ title: 'projects' }}
+					/>
+					<Drawer.Screen
+						name='project-details'
+						options={{ drawerItemStyle: { display: 'none' } }}
+					/>
 				</Drawer>
 				<StatusBar style={isDark ? 'light' : 'dark'} />
 			</GestureHandlerRootView>

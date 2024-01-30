@@ -1,6 +1,6 @@
 import { AnimatedView } from '@/components/AnimatedView';
 import { ContactForm } from '@/components/ContactForm';
-import { Button, View } from '@/components/themed';
+import { Button, Text, View } from '@/components/themed';
 import { colors } from '@/constants';
 import { openURL } from 'expo-linking';
 import React from 'react';
@@ -27,7 +27,7 @@ const Contact = () => {
 
 export default Contact;
 
-function SocialLinks() {
+export function SocialLinks() {
 	const links = [
 		{
 			icon: 'twitter',
@@ -47,21 +47,25 @@ function SocialLinks() {
 		},
 	];
 	return (
-		<View className='absolute bottom-0 pb-4 flex-row gap-2 w-full justify-center'>
-			{links.map((link) => (
-				<IconButton
-					key={link.icon}
-					icon={link.icon}
-					onPress={() => {
-						openURL(link.url);
-					}}
-					mode='outlined'
-					theme={{
-						colors: { primary: colors.primary },
-					}}
-					size={20}
-				/>
-			))}
+		<View>
+			<View className='pb-4 flex-row gap-2 w-full justify-center items-center'>
+				{links.map((link) => (
+					<IconButton
+						key={link.icon}
+						icon={link.icon}
+						onPress={() => {
+							openURL(link.url);
+						}}
+						theme={{
+							colors: { primary: colors.primary },
+						}}
+						size={20}
+					/>
+				))}
+			</View>
+			<View className='justify-center items-center pb-12'>
+				<Text className='text-sm'> © copyright 2022. All rights reserved</Text>
+			</View>
 		</View>
 	);
 }
